@@ -1,6 +1,6 @@
 {
   "name": "@asmala/nextenv-cli",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Drop-in replacement for dotenv-cli that loads .env files the Next.js way (via @next/env).",
   "keywords": [
     "nextjs",
