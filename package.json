@@ -1,0 +1,51 @@
+{
+  "name": "@asmala/nextenv-cli",
+  "version": "0.1.0",
+  "description": "Drop-in replacement for dotenv-cli that loads .env files the Next.js way (via @next/env).",
+  "keywords": [
+    "nextjs",
+    "dotenv",
+    "dotenv-cli",
+    "env",
+    "cli",
+    "@next/env"
+  ],
+  "license": "MIT",
+  "author": "Samuli Asmala",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samuliasmala/nextenv-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/samuliasmala/nextenv-cli/issues"
+  },
+  "homepage": "https://github.com/samuliasmala/nextenv-cli#readme",
+  "bin": {
+    "nextenv": "bin/nextenv.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "bin/",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20.19",
+    "pnpm": ">=10"
+  },
+  "packageManager": "pnpm@10.33.2",
+  "scripts": {
+    "test": "node --test 'test/**/*.test.js'"
+  },
+  "dependencies": {
+    "cross-spawn": "^7.0.6"
+  },
+  "peerDependencies": {
+    "@next/env": ">=13"
+  },
+  "devDependencies": {
+    "@next/env": "^16.1.6"
+  }
+}
