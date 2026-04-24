@@ -36,11 +36,20 @@ loadEnvConfig(process.cwd(), dev, { info: () => {}, error: console.error });
 const [command, ...args] = rest;
 const child = spawn(command, args, { stdio: 'inherit' });
 
-const forward = (signal) => {
-  if (!child.killed) child.kill(signal);
-};
-process.on('SIGINT', () => forward('SIGINT'));
-process.on('SIGTERM', () => forward('SIGTERM'));
+const FORWARDED_SIGNALS = [
+  'SIGINT',
+  'SIGTERM',
+  'SIGHUP',
+  'SIGBREAK',
+  'SIGWINCH',
+  'SIGUSR1',
+  'SIGUSR2',
+];
+for (const signal of FORWARDED_SIGNALS) {
+  process.on(signal, () => {
+    if (!child.killed) child.kill(signal);
+  });
+}
 
 child.on('error', (err) => {
   console.error(`nextenv: failed to spawn '${command}': ${err.message}`);
